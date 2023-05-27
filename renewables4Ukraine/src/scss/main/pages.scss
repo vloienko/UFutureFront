@@ -1,0 +1,181 @@
+.wind {
+   background-image: url('../img/pages/wind.jpg');
+}
+.solar {
+   background-image: url('../img/pages/solar.jpg');
+}
+.bio {
+   background-image: url('../img/pages/bio.jpg');
+}
+.hydro {
+   background-image: url('../img/pages/hydro.jpg');
+}
+
+.page-bg {
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   color: $text-white;
+   height: 100vh;
+
+   & .container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+   }
+
+   &__body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+
+   &__title {
+      font-family: 'SourceSerifPro';
+      text-align: center;
+      @include adaptiveValue('font-size', 80, 35);
+      @include adaptiveValue('line-height', 100, 44);
+      @include adaptiveValue('margin-bottom', 30, 20);
+   }
+
+   &__sub-title {
+      max-width: 735px;
+      width: 100%;
+      text-align: center;
+      line-height: 155%;
+      @include adaptiveValue('font-size', 20, 16);
+   }
+
+   &__location {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      width: 100%;
+      gap: 12px;
+      position: absolute;
+      left: 15px;
+      bottom: 95px;
+   }
+
+   &__map {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+   }
+
+   &__scroll {
+      position: absolute;
+      bottom: -63.75px;
+   }
+}
+
+.information {
+   @include adaptiveValue('padding-top', 80, 60);
+   @include adaptiveValue('padding-bottom', 180, 60);
+   color: $text-black;
+
+   &__body {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 60px;
+   }
+
+   &__text,
+   &__text-bold {
+      font-family: 'Rubik';
+      line-height: 155%;
+   }
+
+   &__text {
+      font-weight: 400;
+      @include adaptiveValue('font-size', 18, 14);
+   }
+
+   &__text-bold {
+      font-weight: 500;
+      @include adaptiveValue('font-size', 20, 16);
+
+   }
+
+   &__link {
+      text-decoration: underline;
+   }
+
+   &__electronics,
+   &__windmill {
+      max-width: 100%;
+   }
+
+   &__holder {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      & .donnate {
+         border-color: rgba(0, 0, 0, 0.6);
+      }
+      @media (max-width: 440px) {
+         flex-direction: column;
+         align-items: flex-start;
+      }
+   }
+
+   &__download {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+
+      &:hover {
+         img {
+            border-style: solid;
+         }
+         span {
+            text-decoration: underline;
+         }
+      }
+
+      img {
+         width: 77px;
+         height: 77px;
+         padding: 10px;
+         border: 1px dashed rgba(23, 100, 166, 0.6);
+         border-radius: 50%;
+         object-fit: cover;
+         object-position: center;
+         transition: all .3s ease-in-out;
+      }
+      span {
+         line-height: 155%;
+	      color: $text-lightblack;
+      }
+   }
+}
+
+.sheets.pages {
+   background-color: #F1EFEC;
+   color: $text-lightblack;
+   @include adaptiveValue('padding-bottom', 200, 100);
+
+   & .more-btn {
+      border-top-color: $text-lightblack;
+      border-bottom-color: $text-lightblack;
+      &:hover {
+         border-left-color: $text-lightblack;
+		   border-right-color: $text-lightblack;
+      }
+      &--descr::after {
+         content: url('../img/home/news/arrow.svg');
+      }
+      &.disabled-btn {
+         opacity: 0.1;
+         pointer-events: none;
+      }
+   }
+}

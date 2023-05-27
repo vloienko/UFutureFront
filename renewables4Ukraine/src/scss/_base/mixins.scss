@@ -1,0 +1,66 @@
+
+@mixin screen-s {
+	@media (max-width: #{$screen-s}) {
+		@content;
+	}
+}
+
+
+@mixin screen-m {
+	@media (max-width: #{$screen-m}) {
+		@content;
+	}
+}
+
+
+@mixin screen-l {
+	@media (max-width: #{$screen-l}) {
+		@content;
+	}
+}
+
+
+@mixin screen-xl {
+	@media (max-width: #{$screen-xl}) {
+		@content;
+	}
+}
+
+
+@mixin screen-xxl {
+	@media (max-width: #{$screen-xxl}) {
+		@content;
+	}
+}
+
+
+$maxWidthContainer: 1440;
+@mixin adaptiveValue($property, $startSize, $minSize) {
+	$addSize: $startSize - $minSize;
+	//Только если меньше контейнера
+	#{$property}: $startSize + px;
+	@media (max-width: #{$maxWidthContainer + px}) {
+		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 390px) / #{$maxWidthContainer - 390}));
+	}
+}
+
+
+// При використанні rem, em і т.д. - ми не вказуємо розмір шрифта для тегу html (потрібно прибрати з обнулення стилів). 16px - розмір шрифту в браузері за замовчуванням, в такому випадку можна не вказувати його для тегу body. Якщо ж найбільш використований шрифт - інший, то вказуємо його але перед цим переводимо в rem. (Розмір шрифту по макету ділимо на розмір шрифту за замовчуванням(16px).
+
+//TO %
+@function prc($pxOne, $pxTwo) {
+	$result: math.div($pxOne, $pxTwo) * 100%;
+	@return $result;
+}
+
+//REM
+@function rem($px) {
+	$result: math.div($px, 16) + rem; //(Замінити 16px на стандартний/найбільш використовуваний шрифт, який ми вказуємо в body)
+	@return $result;
+}
+
+//EM
+@function em($px) {
+	$result: math.div($px, 16) + em; //(Замінити 16px на стандартний/найбільш використовуваний шрифт, який ми вказуємо в body)
+	@return $result;
+}
